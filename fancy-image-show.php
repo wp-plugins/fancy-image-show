@@ -5,7 +5,7 @@ Plugin Name: Fancy Image Show
 Plugin URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Description: Fancy Image Show WordPress plugin is a simple image rotation plugin. The image rotation happens with five different fancy effects, so it is named fancy image show. 
 Author: Gopi.R
-Version: 6.0
+Version: 6.1
 Author URI: http://www.gopiplus.com/work/
 Donate link: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Tags: Fancy, slideshow, Images
@@ -16,70 +16,20 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 global $wpdb, $wp_version;
 define("WP_FANCYIMGSHOW_TABLE", $wpdb->prefix . "FancyImg_plugin");
 
+function FancyImg( $gallery = "GALLERY1" ) 
+{
+	$arr = array();
+	$arr["gallery"] = $gallery;
+	echo FancyImg_shortcode($arr);
+}
+
 function FancyImgShow() 
 {
 	global $wpdb;
 	$FancyImg_Setting = get_option('FancyImg_Setting');
-	
-	$sSql = "select * from ".WP_FANCYIMGSHOW_TABLE." where 1=1";
-	
-	if ( $FancyImg_Setting <> "")
-	{
-		$sSql = $sSql . " and FancyImg_Gallery='".$FancyImg_Setting."'";
-	}
-
-	$sSql = $sSql . " order by rand() limit 0,1;";
-	
-	//echo $sSql;
-	
-	$data = $wpdb->get_results($sSql);
-	if ( ! empty($data) ) 
-	{
-		foreach ( $data as $data ) 
-		{
-			$FancyImg_Gallery = $data->FancyImg_Gallery;
-			$FancyImg_Width = $data->FancyImg_Width;
-			$FancyImg_Height = $data->FancyImg_Height;
-			$FancyImg_Effect = $data->FancyImg_Effect;
-			$FancyImg_delay = $data->FancyImg_delay;
-			$FancyImg_Strips = $data->FancyImg_Strips;
-			$FancyImg_StripDelay = $data->FancyImg_StripDelay;
-			$FancyImg_Random = $data->FancyImg_Random;
-			$FancyImg_Extra1 = $data->FancyImg_Extra1;
-		}
-		//echo $FancyImg_Extra1;
-		$siteurl_link = get_option('siteurl') . "/";
-		$f_dirHandle = opendir($FancyImg_Extra1);
-		$FancyImg = "";
-		while ($f_file = readdir($f_dirHandle)) 
-		{
-			if(!is_dir($f_file) && (strpos($f_file, '.jpg')>0 or strpos($f_file, '.gif')>0)) 
-			{
-				$FancyImg = $FancyImg ."<img src='".$siteurl_link . $FancyImg_Extra1 . $f_file ."' />";
-			}
-		}
-		
-		?>
-		<script>
-		$j(function() {                   	
-				$j(document).ready(function(){
-				$j('#Wh_<?php echo $FancyImg_Gallery ?>').FancyImageShow({ 
-				width: 	<?php echo $FancyImg_Width ?>, 
-				height: <?php echo $FancyImg_Height ?>, 
-				effect: '<?php echo $FancyImg_Effect ?>',
-				delay:  <?php echo $FancyImg_delay ?>,
-				strips:	<?php echo $FancyImg_Strips ?>,
-				stripDelay: <?php echo $FancyImg_StripDelay ?> });
-		});        				
-				});
-		</script> 
-		<div id="Wh_<?php echo $FancyImg_Gallery ?>"><?php echo $FancyImg; ?></div>
-		<?php
-	}
-	else
-	{
-		echo "Records not found for this gallery: ".$FancyImg_Setting;
-	}
+	$arr = array();
+	$arr["gallery"] = $FancyImg_Setting;
+	echo FancyImg_shortcode($arr);
 }
 
 function FancyImg_install() 
@@ -164,42 +114,48 @@ function FancyImg_shortcode( $atts )
 					$FancyImgDiv = $FancyImgDiv ."<img src='".$siteurl_link . $FancyImg_Extra1 . $f_file ."' />";
 				}
 			}
+			
+			$random = rand(10,100);
+	
+			$FancyImg = "";
+			$FancyImg = $FancyImg."<script>";
+			$FancyImg = $FancyImg.'$j(function() {  ';                 	
+					$FancyImg = $FancyImg.'$j(document).ready(function(){ ';
+					$FancyImg = $FancyImg.'$j("#'.$FancyImg_Gallery.$random.'").FancyImageShow({ ';
+					$FancyImg = $FancyImg."width: ".$FancyImg_Width.", ";
+					$FancyImg = $FancyImg."height: ".$FancyImg_Height.", ";
+					$FancyImg = $FancyImg."effect: '".$FancyImg_Effect."', ";
+					$FancyImg = $FancyImg."delay:  ".$FancyImg_delay.", ";
+					$FancyImg = $FancyImg."strips:	".$FancyImg_Strips.", ";
+					$FancyImg = $FancyImg."stripDelay: ".$FancyImg_StripDelay." }); ";
+			$FancyImg = $FancyImg."}); ";        				
+					$FancyImg = $FancyImg."}); ";
+			$FancyImg = $FancyImg."</script>";
+			$FancyImg = $FancyImg.'<div id="'.$FancyImg_Gallery.$random.'">'.$FancyImgDiv.'</div>';
+			
 		}
 		else
 		{
-			echo "Wrong folder location, Pls enter as per example.";
+			$FancyImg = "Wrong folder location( " .$FancyImg_Extra1. " ), Pls enter as per example.";
 		}
 	}
-	$random = rand(10,100);
-	
- 	$FancyImg = "";
-    $FancyImg = $FancyImg."<script>";
-	$FancyImg = $FancyImg.'$j(function() {  ';                 	
-			$FancyImg = $FancyImg.'$j(document).ready(function(){ ';
-			$FancyImg = $FancyImg.'$j("#'.$FancyImg_Gallery.$random.'").FancyImageShow({ ';
-			$FancyImg = $FancyImg."width: ".$FancyImg_Width.", ";
-			$FancyImg = $FancyImg."height: ".$FancyImg_Height.", ";
-			$FancyImg = $FancyImg."effect: '".$FancyImg_Effect."', ";
-			$FancyImg = $FancyImg."delay:  ".$FancyImg_delay.", ";
-			$FancyImg = $FancyImg."strips:	".$FancyImg_Strips.", ";
-			$FancyImg = $FancyImg."stripDelay: ".$FancyImg_StripDelay." }); ";
-	$FancyImg = $FancyImg."}); ";        				
-			$FancyImg = $FancyImg."}); ";
-	$FancyImg = $FancyImg."</script>";
-    $FancyImg = $FancyImg.'<div id="'.$FancyImg_Gallery.$random.'">'.$FancyImgDiv.'</div>';
+	else
+	{
+		$FancyImg = "Gallery( " .$scode. " ) not available";
+	}
 	return $FancyImg;
 }
 
 function FancyImg_deactivation() 
 {
-
+	//No action required.
 }
 
 function FancyImg_add_javascript_files() 
 {
 	if (!is_admin())
 	{
-		wp_enqueue_script( 'jquery-1.7.min', get_option('siteurl').'/wp-content/plugins/fancy-image-show/js/jquery-1.7.min.js');
+		wp_enqueue_script( 'jquery');
 		wp_enqueue_script( 'fancy-image-show', get_option('siteurl').'/wp-content/plugins/fancy-image-show/js/fancy-image-show.js');
 	}	
 }

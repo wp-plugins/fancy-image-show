@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-p
 Plugin URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Tags: Fancy, slideshow, Images
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 6.0
+Tested up to: 3.5
+Stable tag: 6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -87,6 +87,11 @@ New demo link
 
 Option to set widget gallery
 
+= 6.1 =
+
+Tested up to WordPress 3.5
+Avoid registering the alternate jQuery.
+From this version we are using existing wordpress jQuery.
 
 == Upgrade Notice ==
 
@@ -114,3 +119,9 @@ New demo link
 = 6.0 =
 
 Option to set widget gallery
+
+= 6.1 =
+
+Tested up to WordPress 3.5
+Avoid registering the alternate jQuery.
+From this version we are using existing wordpress jQuery.
