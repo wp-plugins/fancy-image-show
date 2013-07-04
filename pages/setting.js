@@ -61,7 +61,7 @@ function FancyImg_submit()
 	}
 	else if(document.FancyImg_form.FancyImg_Extra1.value=="")
 	{
-		alert("Please enter the image location, only number.")
+		alert("Please enter the image folder location, only number.")
 		document.FancyImg_form.FancyImg_Extra1.focus();
 		return false;
 	}
@@ -71,14 +71,14 @@ function FancyImg_delete(id)
 {
 	if(confirm("Do you want to delete this record?"))
 	{
-		document.frm_FancyImg_display.action="options-general.php?page=fancy-image-show/fancy-image-show.php&AC=DEL&DID="+id;
+		document.frm_FancyImg_display.action="options-general.php?page=fancy-image-show&ac=del&did="+id;
 		document.frm_FancyImg_display.submit();
 	}
 }	
 
 function FancyImg_redirect()
 {
-	window.location = "options-general.php?page=fancy-image-show/fancy-image-show.php";
+	window.location = "options-general.php?page=fancy-image-show";
 }
 
 function FancyImg_help()

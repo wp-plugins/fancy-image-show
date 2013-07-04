@@ -5,7 +5,7 @@ Plugin Name: Fancy Image Show
 Plugin URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Description: Fancy Image Show WordPress plugin is a simple image rotation plugin. The image rotation happens with five different fancy effects, so it is named fancy image show. 
 Author: Gopi.R
-Version: 6.1
+Version: 7.0
 Author URI: http://www.gopiplus.com/work/
 Donate link: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Tags: Fancy, slideshow, Images
@@ -15,6 +15,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_FANCYIMGSHOW_TABLE", $wpdb->prefix . "FancyImg_plugin");
+
+define("WP_FancyImg_UNIQUE_NAME", "fancy-image-show");
+define("WP_FancyImg_TITLE", "Fancy Image Show");
+define('WP_FancyImg_LINK', 'Check official website for more information <a target="_blank" href="http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/">click here</a>');
+define('WP_FancyImg_FAV', 'http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/');
 
 function FancyImg( $gallery = "GALLERY1" ) 
 {
@@ -68,7 +73,24 @@ function FancyImg_install()
 
 function FancyImg_admin_options() 
 {
-	include_once("image-management.php");
+	//include_once("image-management.php");
+	global $wpdb;
+	$current_page = isset($_GET['ac']) ? $_GET['ac'] : '';
+	switch($current_page)
+	{
+		case 'edit':
+			include('pages/content-management-edit.php');
+			break;
+		case 'add':
+			include('pages/content-management-add.php');
+			break;
+		case 'set':
+			include('pages/widget-setting.php');
+			break;
+		default:
+			include('pages/content-management-show.php');
+			break;
+	}
 }
 
 function FancyImg_shortcode( $atts ) 
@@ -162,7 +184,7 @@ function FancyImg_add_javascript_files()
 
 function FancyImg_add_to_menu() 
 {
-	add_options_page('Fancy image show', 'Fancy image show', 'manage_options', __FILE__, 'FancyImg_admin_options' );
+	add_options_page('Fancy image show', 'Fancy image show', 'manage_options', 'fancy-image-show', 'FancyImg_admin_options' );
 }
 
 if (is_admin()) 
