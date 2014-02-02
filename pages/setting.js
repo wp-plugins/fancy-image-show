@@ -1,6 +1,6 @@
 /**
  *     Fancy Image Show
- *     Copyright (C) 2011 - 2013 www.gopiplus.com
+ *     Copyright (C) 2011 - 2014 www.gopiplus.com
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -61,7 +61,7 @@ function FancyImg_submit()
 	}
 	else if(document.FancyImg_form.FancyImg_Extra1.value=="")
 	{
-		alert("Please enter the image folder location, only number.")
+		alert("Please enter the image folder location.")
 		document.FancyImg_form.FancyImg_Extra1.focus();
 		return false;
 	}

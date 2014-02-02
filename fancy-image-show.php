@@ -1,11 +1,10 @@
 <?php
-
 /*
 Plugin Name: Fancy Image Show
 Plugin URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Description: Fancy Image Show WordPress plugin is a simple image rotation plugin. The image rotation happens with five different fancy effects, so it is named fancy image show. 
 Author: Gopi.R
-Version: 7.0
+Version: 7.1
 Author URI: http://www.gopiplus.com/work/
 Donate link: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Tags: Fancy, slideshow, Images
@@ -15,11 +14,19 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_FANCYIMGSHOW_TABLE", $wpdb->prefix . "FancyImg_plugin");
-
-define("WP_FancyImg_UNIQUE_NAME", "fancy-image-show");
-define("WP_FancyImg_TITLE", "Fancy Image Show");
-define('WP_FancyImg_LINK', 'Check official website for more information <a target="_blank" href="http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/">click here</a>');
 define('WP_FancyImg_FAV', 'http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/');
+
+if ( ! defined( 'WP_FancyImg_BASENAME' ) )
+	define( 'WP_FancyImg_BASENAME', plugin_basename( __FILE__ ) );
+	
+if ( ! defined( 'WP_FancyImg_PLUGIN_NAME' ) )
+	define( 'WP_FancyImg_PLUGIN_NAME', trim( dirname( WP_FancyImg_BASENAME ), '/' ) );
+	
+if ( ! defined( 'WP_FancyImg_PLUGIN_URL' ) )
+	define( 'WP_FancyImg_PLUGIN_URL', WP_PLUGIN_URL . '/' . WP_FancyImg_PLUGIN_NAME );
+	
+if ( ! defined( 'WP_FancyImg_ADMIN_URL' ) )
+	define( 'WP_FancyImg_ADMIN_URL', get_option('siteurl') . '/wp-admin/options-general.php?page=fancy-image-show' );
 
 function FancyImg( $gallery = "GALLERY1" ) 
 {
@@ -66,7 +73,6 @@ function FancyImg_install()
 		$sSql = $IsSql . " VALUES ('GALLERY2', '280', '280', 'zipper', '2000', '12', '30', 'YES', 'wp-content/plugins/fancy-image-show/gallery2/', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 	}
-
 	add_option('FancyImg_Title', "Fancy Image Show");
 	add_option('FancyImg_Setting', "GALLERY1");
 }
@@ -158,12 +164,12 @@ function FancyImg_shortcode( $atts )
 		}
 		else
 		{
-			$FancyImg = "Wrong folder location( " .$FancyImg_Extra1. " ), Pls enter as per example.";
+			$FancyImg = "Wrong folder location ( " .$FancyImg_Extra1. " ), Pls enter as per example.";
 		}
 	}
 	else
 	{
-		$FancyImg = "Gallery( " .$scode. " ) not available";
+		$FancyImg = "Gallery ( " .$scode. " ) not available";
 	}
 	return $FancyImg;
 }
@@ -178,13 +184,13 @@ function FancyImg_add_javascript_files()
 	if (!is_admin())
 	{
 		wp_enqueue_script( 'jquery');
-		wp_enqueue_script( 'fancy-image-show', get_option('siteurl').'/wp-content/plugins/fancy-image-show/js/fancy-image-show.js');
+		wp_enqueue_script( 'fancy-image-show', WP_FancyImg_PLUGIN_URL.'/js/fancy-image-show.js');
 	}	
 }
 
 function FancyImg_add_to_menu() 
 {
-	add_options_page('Fancy image show', 'Fancy image show', 'manage_options', 'fancy-image-show', 'FancyImg_admin_options' );
+	add_options_page(__('Fancy Image Show', 'fancy-image-show'), __('Fancy Image Show', 'fancy-image-show'), 'manage_options', 'fancy-image-show', 'FancyImg_admin_options' );
 }
 
 if (is_admin()) 
@@ -220,37 +226,37 @@ function FancyImg_control()
 {
 	$FancyImg_Title = get_option('FancyImg_Title');
 	$FancyImg_Setting = get_option('FancyImg_Setting');
-	if (@$_POST['FancyImg_Submit']) 
+	if (isset($_POST['FancyImg_Submit'])) 
 	{
 		$FancyImg_Title = $_POST['FancyImg_Title'];
 		$FancyImg_Setting = $_POST['FancyImg_Setting'];
 		update_option('FancyImg_Title', $FancyImg_Title );
 		update_option('FancyImg_Setting', $FancyImg_Setting );
 	}
-	echo '<p>Widget Title:<br><input  style="width: 200px;" type="text" value="';
+	echo '<p>'.__('Widget Title:', 'fancy-image-show').'<br><input  style="width: 200px;" type="text" value="';
 	echo $FancyImg_Title . '" name="FancyImg_Title" id="FancyImg_Title" /></p>';
-	echo '<p>Gallery Setting:<br><select name="FancyImg_Setting" id="FancyImg_Setting">';
+	echo '<p>'.__('Gallery Setting:', 'fancy-image-show').'<br><select name="FancyImg_Setting" id="FancyImg_Setting">';
 	?>
-	<option value="GALLERY1" <?php if(@$FancyImg_Setting=='GALLERY1') { echo 'selected' ; } ?>>GALLERY1</option>
-	<option value="GALLERY2" <?php if(@$FancyImg_Setting=='GALLERY2') { echo 'selected' ; } ?>>GALLERY2</option>
-	<option value="GALLERY3" <?php if(@$FancyImg_Setting=='GALLERY3') { echo 'selected' ; } ?>>GALLERY3</option>
-	<option value="GALLERY4" <?php if(@$FancyImg_Setting=='GALLERY4') { echo 'selected' ; } ?>>GALLERY4</option>
-	<option value="GALLERY5" <?php if(@$FancyImg_Setting=='GALLERY5') { echo 'selected' ; } ?>>GALLERY5</option>
-	<option value="GALLERY6" <?php if(@$FancyImg_Setting=='GALLERY6') { echo 'selected' ; } ?>>GALLERY6</option>
-	<option value="GALLERY7" <?php if(@$FancyImg_Setting=='GALLERY7') { echo 'selected' ; } ?>>GALLERY7</option>
-	<option value="GALLERY8" <?php if(@$FancyImg_Setting=='GALLERY8') { echo 'selected' ; } ?>>GALLERY8</option>
-	<option value="GALLERY9" <?php if(@$FancyImg_Setting=='GALLERY9') { echo 'selected' ; } ?>>GALLERY9</option>
-	<option value="GALLERY10" <?php if(@$FancyImg_Setting=='GALLERY10') { echo 'selected' ; } ?>>GALLERY10</option>
-	<option value="GALLERY11" <?php if(@$FancyImg_Setting=='GALLERY11') { echo 'selected' ; } ?>>GALLERY11</option>
-	<option value="GALLERY12" <?php if(@$FancyImg_Setting=='GALLERY12') { echo 'selected' ; } ?>>GALLERY12</option>
-	<option value="GALLERY13" <?php if(@$FancyImg_Setting=='GALLERY13') { echo 'selected' ; } ?>>GALLERY13</option>
-	<option value="GALLERY14" <?php if(@$FancyImg_Setting=='GALLERY14') { echo 'selected' ; } ?>>GALLERY14</option>
-	<option value="GALLERY15" <?php if(@$FancyImg_Setting=='GALLERY15') { echo 'selected' ; } ?>>GALLERY15</option>
-	<option value="GALLERY16" <?php if(@$FancyImg_Setting=='GALLERY16') { echo 'selected' ; } ?>>GALLERY16</option>
-	<option value="GALLERY17" <?php if(@$FancyImg_Setting=='GALLERY17') { echo 'selected' ; } ?>>GALLERY17</option>
-	<option value="GALLERY18" <?php if(@$FancyImg_Setting=='GALLERY18') { echo 'selected' ; } ?>>GALLERY18</option>
-	<option value="GALLERY19" <?php if(@$FancyImg_Setting=='GALLERY19') { echo 'selected' ; } ?>>GALLERY19</option>
-	<option value="GALLERY20" <?php if(@$FancyImg_Setting=='GALLERY20') { echo 'selected' ; } ?>>GALLERY20</option>
+	<option value="GALLERY1" <?php if($FancyImg_Setting=='GALLERY1') { echo 'selected' ; } ?>>GALLERY1</option>
+	<option value="GALLERY2" <?php if($FancyImg_Setting=='GALLERY2') { echo 'selected' ; } ?>>GALLERY2</option>
+	<option value="GALLERY3" <?php if($FancyImg_Setting=='GALLERY3') { echo 'selected' ; } ?>>GALLERY3</option>
+	<option value="GALLERY4" <?php if($FancyImg_Setting=='GALLERY4') { echo 'selected' ; } ?>>GALLERY4</option>
+	<option value="GALLERY5" <?php if($FancyImg_Setting=='GALLERY5') { echo 'selected' ; } ?>>GALLERY5</option>
+	<option value="GALLERY6" <?php if($FancyImg_Setting=='GALLERY6') { echo 'selected' ; } ?>>GALLERY6</option>
+	<option value="GALLERY7" <?php if($FancyImg_Setting=='GALLERY7') { echo 'selected' ; } ?>>GALLERY7</option>
+	<option value="GALLERY8" <?php if($FancyImg_Setting=='GALLERY8') { echo 'selected' ; } ?>>GALLERY8</option>
+	<option value="GALLERY9" <?php if($FancyImg_Setting=='GALLERY9') { echo 'selected' ; } ?>>GALLERY9</option>
+	<option value="GALLERY10" <?php if($FancyImg_Setting=='GALLERY10') { echo 'selected' ; } ?>>GALLERY10</option>
+	<option value="GALLERY11" <?php if($FancyImg_Setting=='GALLERY11') { echo 'selected' ; } ?>>GALLERY11</option>
+	<option value="GALLERY12" <?php if($FancyImg_Setting=='GALLERY12') { echo 'selected' ; } ?>>GALLERY12</option>
+	<option value="GALLERY13" <?php if($FancyImg_Setting=='GALLERY13') { echo 'selected' ; } ?>>GALLERY13</option>
+	<option value="GALLERY14" <?php if($FancyImg_Setting=='GALLERY14') { echo 'selected' ; } ?>>GALLERY14</option>
+	<option value="GALLERY15" <?php if($FancyImg_Setting=='GALLERY15') { echo 'selected' ; } ?>>GALLERY15</option>
+	<option value="GALLERY16" <?php if($FancyImg_Setting=='GALLERY16') { echo 'selected' ; } ?>>GALLERY16</option>
+	<option value="GALLERY17" <?php if($FancyImg_Setting=='GALLERY17') { echo 'selected' ; } ?>>GALLERY17</option>
+	<option value="GALLERY18" <?php if($FancyImg_Setting=='GALLERY18') { echo 'selected' ; } ?>>GALLERY18</option>
+	<option value="GALLERY19" <?php if($FancyImg_Setting=='GALLERY19') { echo 'selected' ; } ?>>GALLERY19</option>
+	<option value="GALLERY20" <?php if($FancyImg_Setting=='GALLERY20') { echo 'selected' ; } ?>>GALLERY20</option>
 	</select>
 	<?php
 	echo '<input type="hidden" id="FancyImg_Submit" name="FancyImg_Submit" value="1" />';
@@ -260,15 +266,21 @@ function FancyImg_init()
 {
 	if(function_exists('wp_register_sidebar_widget')) 
 	{
-		wp_register_sidebar_widget('Fancy Image Show', 'Fancy Image Show', 'FancyImg_widget');
+		wp_register_sidebar_widget(__('Fancy Image Show', 'fancy-image-show'), __('Fancy Image Show', 'fancy-image-show'), 'FancyImg_widget');
 	}
 	
 	if(function_exists('wp_register_widget_control')) 
 	{
-		wp_register_widget_control('Fancy Image Show', array('Fancy Image Show', 'widgets'), 'FancyImg_control');
+		wp_register_widget_control(__('Fancy Image Show', 'fancy-image-show'), array(__('Fancy Image Show', 'fancy-image-show'), 'widgets'), 'FancyImg_control');
 	} 
 }
 
+function FancyImg_textdomain() 
+{
+	  load_plugin_textdomain( 'fancy-image-show', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
+add_action('plugins_loaded', 'FancyImg_textdomain');
 add_shortcode( 'fancy-img-show', 'FancyImg_shortcode' );
 add_action('wp_enqueue_scripts', 'FancyImg_add_javascript_files');
 add_action("plugins_loaded", "FancyImg_init");

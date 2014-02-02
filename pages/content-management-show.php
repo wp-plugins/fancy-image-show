@@ -18,7 +18,7 @@ if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == '
 	
 	if ($result != '1')
 	{
-		?><div class="error fade"><p><strong>Oops, selected details doesn't exist (1).</strong></p></div><?php
+		?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist', 'fancy-image-show'); ?></strong></p></div><?php
 	}
 	else
 	{
@@ -36,7 +36,7 @@ if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == '
 			
 			//	Set success message
 			$FancyImg_success_msg = TRUE;
-			$FancyImg_success = __('Selected record was successfully deleted.', WP_FancyImg_UNIQUE_NAME);
+			$FancyImg_success = __('Selected record was successfully deleted.', 'fancy-image-show');
 		}
 	}
 	
@@ -48,34 +48,35 @@ if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == '
 ?>
 <div class="wrap">
   <div id="icon-edit" class="icon32 icon32-posts-post"></div>
-    <h2><?php echo WP_FancyImg_TITLE; ?><a class="add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=fancy-image-show&amp;ac=add">Add New</a></h2>
+    <h2><?php _e('Fancy Image Show', 'fancy-image-show'); ?>
+	<a class="add-new-h2" href="<?php echo WP_FancyImg_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'fancy-image-show'); ?></a></h2>
     <div class="tool-box">
 	<?php
 		$sSql = "SELECT * FROM `".WP_FANCYIMGSHOW_TABLE."` order by FancyImg_id desc";
 		$myData = array();
 		$myData = $wpdb->get_results($sSql, ARRAY_A);
 		?>
-		<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/fancy-image-show/pages/setting.js"></script>
+		<script language="JavaScript" src="<?php echo WP_FancyImg_PLUGIN_URL; ?>/pages/setting.js"></script>
 		<form name="frm_FancyImg_display" method="post">
       <table width="100%" class="widefat" id="straymanage">
         <thead>
           <tr>
             <th class="check-column" scope="col"><input type="checkbox" name="FancyImg_group_item[]" /></th>
-			<th scope="col">Short Code</th>
-			<th scope="col">Image Location</th>
-            <th scope="col">Effect</th>
-			<th scope="col">Width</th>
-			<th scope="col">Height</th>
+			<th scope="col"><?php _e('Short Code', 'fancy-image-show'); ?></th>
+			<th scope="col"><?php _e('Image Location', 'fancy-image-show'); ?></th>
+            <th scope="col"><?php _e('Effect', 'fancy-image-show'); ?></th>
+			<th scope="col"><?php _e('Width', 'fancy-image-show'); ?></th>
+			<th scope="col"><?php _e('Height', 'fancy-image-show'); ?></th>
           </tr>
         </thead>
 		<tfoot>
           <tr>
             <th class="check-column" scope="col"><input type="checkbox" name="FancyImg_group_item[]" /></th>
-			<th scope="col">Short Code</th>
-			<th scope="col">Image Location</th>
-            <th scope="col">Effect</th>
-			<th scope="col">Width</th>
-			<th scope="col">Height</th>
+			<th scope="col"><?php _e('Short Code', 'fancy-image-show'); ?></th>
+			<th scope="col"><?php _e('Image Location', 'fancy-image-show'); ?></th>
+            <th scope="col"><?php _e('Effect', 'fancy-image-show'); ?></th>
+			<th scope="col"><?php _e('Width', 'fancy-image-show'); ?></th>
+			<th scope="col"><?php _e('Height', 'fancy-image-show'); ?></th>
           </tr>
         </tfoot>
 		<tbody>
@@ -90,8 +91,8 @@ if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == '
 						<td align="left"><input type="checkbox" value="<?php echo $data['FancyImg_id']; ?>" name="FancyImg_group_item[]"></th>
 						<td>[fancy-img-show gallery="<?php echo $data['FancyImg_Gallery']; ?>"]
 						<div class="row-actions">
-							<span class="edit"><a title="Edit" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=fancy-image-show&amp;ac=edit&amp;did=<?php echo $data['FancyImg_id']; ?>">Edit</a> | </span>
-							<span class="trash"><a onClick="javascript:FancyImg_delete('<?php echo $data['FancyImg_id']; ?>')" href="javascript:void(0);">Delete</a></span> 
+						<span class="edit"><a title="Edit" href="<?php echo WP_FancyImg_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['FancyImg_id']; ?>"><?php _e('Edit', 'fancy-image-show'); ?></a> | </span>
+						<span class="trash"><a onClick="javascript:FancyImg_delete('<?php echo $data['FancyImg_id']; ?>')" href="javascript:void(0);"><?php _e('Delete', 'fancy-image-show'); ?></a></span> 
 						</div>
 						</td>
 						<td><?php echo $data['FancyImg_Extra1']; ?></td>
@@ -105,7 +106,7 @@ if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == '
 			}
 			else
 			{
-				?><tr><td colspan="6" align="center">No records available.</td></tr><?php 
+				?><tr><td colspan="6" align="center"><?php _e('No records available.', 'fancy-image-show'); ?></td></tr><?php 
 			}
 			?>
 		</tbody>
@@ -115,17 +116,20 @@ if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == '
       </form>	
 	  <div class="tablenav">
 	  <h2>
-	  <a class="button add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=fancy-image-show&amp;ac=add">Add New</a>
-	  <a class="button add-new-h2" target="_blank" href="<?php echo WP_FancyImg_FAV; ?>">Help</a>
+	  <a class="button add-new-h2" href="<?php echo WP_FancyImg_ADMIN_URL; ?>&amp;ac=add"><?php _e('Add New', 'fancy-image-show'); ?></a>
+	  <a class="button add-new-h2" target="_blank" href="<?php echo WP_FancyImg_FAV; ?>"><?php _e('Help', 'fancy-image-show'); ?></a>
 	  </h2>
 	  </div>
 	  <div style="height:5px"></div>
-	<h3>Plugin configuration option</h3>
+	<h3><?php _e('Plugin configuration option', 'fancy-image-show'); ?></h3>
 	<ol>
-		<li>Drag and drop the widget.</li>
-		<li>Add the plugin in the posts or pages using short code.</li>
-		<li>Add directly in to the theme using PHP code.</li>
+		<li><?php _e('Drag and drop the widget.', 'fancy-image-show'); ?></li>
+		<li><?php _e('Add the plugin in the posts or pages using short code.', 'fancy-image-show'); ?></li>
+		<li><?php _e('Add directly in to the theme using PHP code.', 'fancy-image-show'); ?></li>
 	</ol>
-	<p class="description"><?php echo WP_FancyImg_LINK; ?></p>
+	<p class="description">
+		<?php _e('Check official website for more information', 'fancy-image-show'); ?>
+		<a target="_blank" href="<?php echo WP_FancyImg_FAV; ?>"><?php _e('click here', 'fancy-image-show'); ?></a>
+	</p>
 	</div>
 </div>
