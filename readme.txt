@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-p
 Plugin URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Tags: Fancy, slideshow, Images
 Requires at least: 3.4
-Tested up to: 3.8
-Stable tag: 7.1
+Tested up to: 3.9
+Stable tag: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -18,8 +18,6 @@ Check official website for live demo [http://www.gopiplus.com/work/2011/11/06/fa
 
 *   [Live Demo](http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/)	
 *   [More info](http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/)				
-*   [Comments/Suggestion](http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/)		
-*   [About author](http://www.gopiplus.com/work/)			
 
 Fancy Image Show WordPress plugin is a simple image rotation plugin. The image rotation happens with five different fancy effects, so it is named fancy image show. We can create many galleries in the same posts and pages. In the admin we have option to enter the image folder location.
 
@@ -107,6 +105,11 @@ Added few security features.
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (fancy-image-show.po) available in the languages folder.
 
+= 7.2 =
+
+1. Tested up to 3.9
+2. Added little security feature.
+
 == Upgrade Notice ==
 
 = 1.0 =				
@@ -151,3 +154,8 @@ Added few security features.
 1. Tested up to 3.8
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (fancy-image-show.po) available in the languages folder.
+
+= 7.2 =
+
+1. Tested up to 3.9
+2. Added little security feature.

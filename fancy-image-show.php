@@ -3,14 +3,16 @@
 Plugin Name: Fancy Image Show
 Plugin URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Description: Fancy Image Show WordPress plugin is a simple image rotation plugin. The image rotation happens with five different fancy effects, so it is named fancy image show. 
-Author: Gopi.R
-Version: 7.1
-Author URI: http://www.gopiplus.com/work/
+Author: Gopi Ramasamy
+Version: 7.2
+Author URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Donate link: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Tags: Fancy, slideshow, Images
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
+
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
 
 global $wpdb, $wp_version;
 define("WP_FANCYIMGSHOW_TABLE", $wpdb->prefix . "FancyImg_plugin");
