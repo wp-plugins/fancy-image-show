@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fancy Image Show 7.1\n"
-"POT-Creation-Date: 2014-02-01 10:03+0800\n"
-"PO-Revision-Date: 2014-02-01 10:03+0800\n"
+"POT-Creation-Date: 2014-08-03 10:36+0800\n"
+"PO-Revision-Date: 2014-08-03 10:36+0800\n"
 "Last-Translator: \n"
 "Language-Team: www.gopiplus.com <www.gopiplus.com>\n"
 "MIME-Version: 1.0\n"
@@ -13,232 +13,232 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../fancy-image-show.php:193 ../fancy-image-show.php:269
-#: ../fancy-image-show.php:274 ../pages/content-management-add.php:104
-#: ../pages/content-management-edit.php:128
-#: ../pages/content-management-show.php:51
+#: ../fancy-image-show.php:195 ../fancy-image-show.php:271
+#: ../fancy-image-show.php:276 ../pages/content-management-add.php:105
+#: ../pages/content-management-edit.php:129
+#: ../pages/content-management-show.php:52
 msgid "Fancy Image Show"
 msgstr ""
 
-#: ../fancy-image-show.php:236
+#: ../fancy-image-show.php:238
 msgid "Widget Title:"
 msgstr ""
 
-#: ../fancy-image-show.php:238
+#: ../fancy-image-show.php:240
 msgid "Gallery Setting:"
 msgstr ""
 
-#: ../pages/content-management-add.php:29
-#: ../pages/content-management-edit.php:57
+#: ../pages/content-management-add.php:30
+#: ../pages/content-management-edit.php:58
 msgid "Please select the gallery."
 msgstr ""
 
-#: ../pages/content-management-add.php:36
-#: ../pages/content-management-edit.php:64
+#: ../pages/content-management-add.php:37
+#: ../pages/content-management-edit.php:65
 msgid "Please enter the width."
 msgstr ""
 
-#: ../pages/content-management-add.php:43
-#: ../pages/content-management-edit.php:71
+#: ../pages/content-management-add.php:44
+#: ../pages/content-management-edit.php:72
 msgid "Please enter the height."
 msgstr ""
 
-#: ../pages/content-management-add.php:66
+#: ../pages/content-management-add.php:67
 msgid "New details was successfully added."
 msgstr ""
 
-#: ../pages/content-management-add.php:96
-#: ../pages/content-management-edit.php:120
+#: ../pages/content-management-add.php:97
+#: ../pages/content-management-edit.php:121
 msgid "Click here to view the details"
 msgstr ""
 
-#: ../pages/content-management-add.php:106
+#: ../pages/content-management-add.php:107
 msgid "Add details"
 msgstr ""
 
-#: ../pages/content-management-add.php:108
-#: ../pages/content-management-edit.php:132
+#: ../pages/content-management-add.php:109
+#: ../pages/content-management-edit.php:133
 msgid "Select gallery name"
 msgstr ""
 
-#: ../pages/content-management-add.php:131
-#: ../pages/content-management-edit.php:155
+#: ../pages/content-management-add.php:132
+#: ../pages/content-management-edit.php:156
 msgid "Please select your gallery name."
 msgstr ""
 
-#: ../pages/content-management-add.php:133
-#: ../pages/content-management-edit.php:157
+#: ../pages/content-management-add.php:134
+#: ../pages/content-management-edit.php:158
 msgid "Gallery width"
 msgstr ""
 
-#: ../pages/content-management-add.php:135
-#: ../pages/content-management-edit.php:159
+#: ../pages/content-management-add.php:136
+#: ../pages/content-management-edit.php:160
 msgid "Please enter your gallery width."
 msgstr ""
 
-#: ../pages/content-management-add.php:137
-#: ../pages/content-management-edit.php:161
+#: ../pages/content-management-add.php:138
+#: ../pages/content-management-edit.php:162
 msgid "Gallery height"
 msgstr ""
 
-#: ../pages/content-management-add.php:139
-#: ../pages/content-management-edit.php:163
+#: ../pages/content-management-add.php:140
+#: ../pages/content-management-edit.php:164
 msgid "Please enter your gallery height."
 msgstr ""
 
-#: ../pages/content-management-add.php:141
-#: ../pages/content-management-edit.php:165
+#: ../pages/content-management-add.php:142
+#: ../pages/content-management-edit.php:166
 msgid "Gallery effect"
 msgstr ""
 
-#: ../pages/content-management-add.php:149
-#: ../pages/content-management-edit.php:173
+#: ../pages/content-management-add.php:150
+#: ../pages/content-management-edit.php:174
 msgid "Please enter your gallery effect"
 msgstr ""
 
-#: ../pages/content-management-add.php:151
-#: ../pages/content-management-edit.php:175
+#: ../pages/content-management-add.php:152
+#: ../pages/content-management-edit.php:176
 msgid "Effect delay"
 msgstr ""
 
-#: ../pages/content-management-add.php:153
-#: ../pages/content-management-edit.php:177
+#: ../pages/content-management-add.php:154
+#: ../pages/content-management-edit.php:178
 msgid "Please enter your gallery effects delay."
 msgstr ""
 
-#: ../pages/content-management-add.php:155
-#: ../pages/content-management-edit.php:179
+#: ../pages/content-management-add.php:156
+#: ../pages/content-management-edit.php:180
 msgid "Random display"
 msgstr ""
 
-#: ../pages/content-management-add.php:160
-#: ../pages/content-management-edit.php:184
+#: ../pages/content-management-add.php:161
+#: ../pages/content-management-edit.php:185
 msgid "Please select Yes, If you like to show the images in random order."
 msgstr ""
 
-#: ../pages/content-management-add.php:162
-#: ../pages/content-management-edit.php:186
+#: ../pages/content-management-add.php:163
+#: ../pages/content-management-edit.php:187
 msgid "Strip delay"
 msgstr ""
 
-#: ../pages/content-management-add.php:164
-#: ../pages/content-management-edit.php:188
+#: ../pages/content-management-add.php:165
+#: ../pages/content-management-edit.php:189
 msgid "Please enter your gallery strip delay."
 msgstr ""
 
-#: ../pages/content-management-add.php:166
-#: ../pages/content-management-edit.php:190
+#: ../pages/content-management-add.php:167
+#: ../pages/content-management-edit.php:191
 msgid "Enter strip"
 msgstr ""
 
-#: ../pages/content-management-add.php:168
-#: ../pages/content-management-edit.php:192
+#: ../pages/content-management-add.php:169
+#: ../pages/content-management-edit.php:193
 msgid "Please enter your gallery strip."
 msgstr ""
 
-#: ../pages/content-management-add.php:170
-#: ../pages/content-management-edit.php:194
+#: ../pages/content-management-add.php:171
+#: ../pages/content-management-edit.php:195
 msgid "Image folder location"
 msgstr ""
 
-#: ../pages/content-management-add.php:177
-msgid "Insert Details"
-msgstr ""
-
 #: ../pages/content-management-add.php:178
-#: ../pages/content-management-edit.php:202
-msgid "Cancel"
+msgid "Insert Details"
 msgstr ""
 
 #: ../pages/content-management-add.php:179
 #: ../pages/content-management-edit.php:203
-#: ../pages/content-management-show.php:120
-msgid "Help"
+msgid "Cancel"
 msgstr ""
 
-#: ../pages/content-management-add.php:185
-#: ../pages/content-management-edit.php:209
-#: ../pages/content-management-show.php:131
-msgid "Check official website for more information"
+#: ../pages/content-management-add.php:180
+#: ../pages/content-management-edit.php:204
+#: ../pages/content-management-show.php:121
+msgid "Help"
 msgstr ""
 
 #: ../pages/content-management-add.php:186
 #: ../pages/content-management-edit.php:210
 #: ../pages/content-management-show.php:132
+msgid "Check official website for more information"
+msgstr ""
+
+#: ../pages/content-management-add.php:187
+#: ../pages/content-management-edit.php:211
+#: ../pages/content-management-show.php:133
 msgid "click here"
 msgstr ""
 
-#: ../pages/content-management-edit.php:16
-#: ../pages/content-management-show.php:21
+#: ../pages/content-management-edit.php:17
+#: ../pages/content-management-show.php:22
 msgid "Oops, selected details doesnt exist"
 msgstr ""
 
-#: ../pages/content-management-edit.php:130
+#: ../pages/content-management-edit.php:131
 msgid "Update details"
 msgstr ""
 
-#: ../pages/content-management-edit.php:201
+#: ../pages/content-management-edit.php:202
 msgid "Update Details"
 msgstr ""
 
-#: ../pages/content-management-show.php:39
+#: ../pages/content-management-show.php:40
 msgid "Selected record was successfully deleted."
 msgstr ""
 
-#: ../pages/content-management-show.php:52
-#: ../pages/content-management-show.php:119
+#: ../pages/content-management-show.php:53
+#: ../pages/content-management-show.php:120
 msgid "Add New"
-msgstr ""
-
-#: ../pages/content-management-show.php:65
-#: ../pages/content-management-show.php:75
-msgid "Short Code"
 msgstr ""
 
 #: ../pages/content-management-show.php:66
 #: ../pages/content-management-show.php:76
-msgid "Image Location"
+msgid "Short Code"
 msgstr ""
 
 #: ../pages/content-management-show.php:67
 #: ../pages/content-management-show.php:77
-msgid "Effect"
+msgid "Image Location"
 msgstr ""
 
 #: ../pages/content-management-show.php:68
 #: ../pages/content-management-show.php:78
-msgid "Width"
+msgid "Effect"
 msgstr ""
 
 #: ../pages/content-management-show.php:69
 #: ../pages/content-management-show.php:79
+msgid "Width"
+msgstr ""
+
+#: ../pages/content-management-show.php:70
+#: ../pages/content-management-show.php:80
 msgid "Height"
 msgstr ""
 
-#: ../pages/content-management-show.php:94
+#: ../pages/content-management-show.php:95
 msgid "Edit"
 msgstr ""
 
-#: ../pages/content-management-show.php:95
+#: ../pages/content-management-show.php:96
 msgid "Delete"
 msgstr ""
 
-#: ../pages/content-management-show.php:109
+#: ../pages/content-management-show.php:110
 msgid "No records available."
 msgstr ""
 
-#: ../pages/content-management-show.php:124
+#: ../pages/content-management-show.php:125
 msgid "Plugin configuration option"
 msgstr ""
 
-#: ../pages/content-management-show.php:126
+#: ../pages/content-management-show.php:127
 msgid "Drag and drop the widget."
 msgstr ""
 
-#: ../pages/content-management-show.php:127
+#: ../pages/content-management-show.php:128
 msgid "Add the plugin in the posts or pages using short code."
 msgstr ""
 
-#: ../pages/content-management-show.php:128
+#: ../pages/content-management-show.php:129
 msgid "Add directly in to the theme using PHP code."
 msgstr ""
