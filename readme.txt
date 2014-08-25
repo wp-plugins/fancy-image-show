@@ -103,6 +103,7 @@ Plugin *.po file (fancy-image-show.po) available in the languages folder.
 
 1. Tested up to 4.0
 
+
 == Upgrade Notice ==
 
 = 1.0 =				
