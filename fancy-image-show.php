@@ -4,7 +4,7 @@ Plugin Name: Fancy Image Show
 Plugin URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Description: Fancy Image Show WordPress plugin is a simple image rotation plugin. The image rotation happens with five different fancy effects, so it is named fancy image show. 
 Author: Gopi Ramasamy
-Version: 7.3
+Version: 7.4
 Author URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Donate link: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Tags: Fancy, slideshow, Images

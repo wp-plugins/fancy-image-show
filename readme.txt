@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-p
 Plugin URI: http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 Tags: Fancy, slideshow, Images
 Requires at least: 3.4
-Tested up to: 4.0
-Stable tag: 7.3
+Tested up to: 4.1
+Stable tag: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -103,6 +103,9 @@ Plugin *.po file (fancy-image-show.po) available in the languages folder.
 
 1. Tested up to 4.0
 
+= 7.4 =
+
+1. Tested up to 4.1
 
 == Upgrade Notice ==
 
@@ -157,3 +160,7 @@ Plugin *.po file (fancy-image-show.po) available in the languages folder.
 = 7.3 =
 
 1. Tested up to 4.0
+
+= 7.4 =
+
+1. Tested up to 4.1
