@@ -33,6 +33,11 @@ We can configure this plug-in in three different way.
 
 For more information check this link : http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/
 
+= Translators =
+
+* English (en_EN) - [Gopi Ramasamy](http://www.gopiplus.com/)
+* Serbo-Croatian (sr_RS) - [Andrijana Nikolic](http://webhostinggeeks.com/)
+
 == Installation ==
 
 [Installation Instruction](http://www.gopiplus.com/work/2011/11/06/fancy-image-show-wordpress-plugin/)								
