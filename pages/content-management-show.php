@@ -4,6 +4,7 @@
 if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == 'yes')
 {
 	$did = isset($_GET['did']) ? $_GET['did'] : '0';
+	if(!is_numeric($did)) { die('<p>Are you sure you want to do this?</p>'); }
 	
 	$FancyImg_success = '';
 	$FancyImg_success_msg = FALSE;
@@ -62,7 +63,6 @@ if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == '
       <table width="100%" class="widefat" id="straymanage">
         <thead>
           <tr>
-            <th class="check-column" scope="col"><input type="checkbox" name="FancyImg_group_item[]" /></th>
 			<th scope="col"><?php _e('Short Code', 'fancy-image-show'); ?></th>
 			<th scope="col"><?php _e('Image Location', 'fancy-image-show'); ?></th>
             <th scope="col"><?php _e('Effect', 'fancy-image-show'); ?></th>
@@ -72,7 +72,6 @@ if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == '
         </thead>
 		<tfoot>
           <tr>
-            <th class="check-column" scope="col"><input type="checkbox" name="FancyImg_group_item[]" /></th>
 			<th scope="col"><?php _e('Short Code', 'fancy-image-show'); ?></th>
 			<th scope="col"><?php _e('Image Location', 'fancy-image-show'); ?></th>
             <th scope="col"><?php _e('Effect', 'fancy-image-show'); ?></th>
@@ -89,7 +88,6 @@ if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == '
 				{
 					?>
 					<tr class="<?php if ($i&1) { echo'alternate'; } else { echo ''; }?>">
-						<td align="left"><input type="checkbox" value="<?php echo $data['FancyImg_id']; ?>" name="FancyImg_group_item[]"></th>
 						<td>[fancy-img-show gallery="<?php echo $data['FancyImg_Gallery']; ?>"]
 						<div class="row-actions">
 						<span class="edit"><a title="Edit" href="<?php echo WP_FancyImg_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['FancyImg_id']; ?>"><?php _e('Edit', 'fancy-image-show'); ?></a> | </span>
@@ -107,7 +105,7 @@ if (isset($_POST['frm_FancyImg_display']) && $_POST['frm_FancyImg_display'] == '
 			}
 			else
 			{
-				?><tr><td colspan="6" align="center"><?php _e('No records available.', 'fancy-image-show'); ?></td></tr><?php 
+				?><tr><td colspan="5" align="center"><?php _e('No records available.', 'fancy-image-show'); ?></td></tr><?php 
 			}
 			?>
 		</tbody>
