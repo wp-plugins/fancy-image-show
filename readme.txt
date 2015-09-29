@@ -37,6 +37,7 @@ For more information check this link : http://www.gopiplus.com/work/2011/11/06/f
 
 * English (en_EN) - [Gopi Ramasamy](http://www.gopiplus.com/)
 * Serbo-Croatian (sr_RS) - [Andrijana Nikolic](http://webhostinggeeks.com/)
+* Polish (pl) - [Abdul](http://www.couponmachine.in/)
 
 == Installation ==
 
